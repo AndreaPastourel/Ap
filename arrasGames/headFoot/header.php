@@ -13,6 +13,7 @@
     <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="/arrasGames/css/tailwind.css">
     <link rel="stylesheet" href="/arrasGames/css/tooplate-antique-cafe.css">
+    <link rel="icon" type="image/x-icon" href="/arrasGames/logo.ico">
     
 <!--
 

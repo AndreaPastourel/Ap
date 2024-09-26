@@ -16,7 +16,7 @@ $isConnected = isset($_SESSION['username']); // Remplace 'username' par la clé 
         <!-- Liste de navigation -->
         <ul class="mb-3 md:mb-0 text-2xl font-normal flex justify-end flex-col md:flex-row" id="menu-items">
             <li class="inline-block mb-4 mx-4"><a href="/arrasGames/index.php" class="tm-text-pink py-1 md:py-3 px-4">Page d'accueil</a></li>
-            <li class="inline-block mb-4 mx-4"><a href="#about" class="tm-text-pink py-1 md:py-3 px-4">Tournois</a></li>
+            <li class="inline-block mb-4 mx-4"><a href="/arrasGames/tournois.php" class="tm-text-pink py-1 md:py-3 px-4">Tournois</a></li>
 
             <!-- Vérification du rôle avant d'afficher les liens d'administration -->
             <?php if (isset($_SESSION['role']) && ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'staff')) : ?>

@@ -63,7 +63,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/arrasGames/headFoot/nav.php');
     ?>
 
 <h2>Modifier les informations du tournoi</h2>
-<p><a href="crud.php">Retour en arrière</a></p>
+<p><a href="/arrasGames/crudGame.php">Retour en arrière</a></p>
 
 <!-- Début Formulaire -->
 <form action="action/edit.php" method="post" enctype="multipart/form-data">

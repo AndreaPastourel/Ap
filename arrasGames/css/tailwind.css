@@ -1202,6 +1202,7 @@ video {
 .formulaire input[type="password"], 
 .formulaire input[type="email"], 
 .formulaire input[type="file"],
+.formulaire input[type="date"],
 .formulaire input[type="datetime-local"] {
   width: 100%;
   padding: 10px;
@@ -1289,6 +1290,7 @@ video {
 .formulaire input[type="password"], 
 .formulaire input[type="email"], 
 .formulaire input[type="file"],
+.formulaire input[type="date"],
 .formulaire input[type="datetime-local"], 
 .formulaire select {
   width: 100%;
@@ -1367,7 +1369,8 @@ video {
 .formulaire input[type="text"], 
 .formulaire input[type="password"], 
 .formulaire input[type="email"], 
-.formulaire input[type="submit"], 
+.formulaire input[type="submit"],
+.formulaire input[type="date"]:focus, 
 .formulaire input[type="file"],
 .formulaire input[type="datetime-local"], 
 .formulaire select {
@@ -1377,6 +1380,7 @@ video {
 .formulaire input[type="text"]:focus, 
 .formulaire input[type="password"]:focus, 
 .formulaire input[type="email"]:focus, 
+.formulaire input[type="date"]:focus,
 .formulaire input[type="datetime-local"]:focus, 
 .formulaire input[type="file"]:focus,
 .formulaire select:focus {
