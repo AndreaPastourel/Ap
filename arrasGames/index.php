@@ -6,12 +6,13 @@
     try {
         // Requête pour récupérer le tournoi le plus proche de la date actuelle
         $stmt = $pdo->prepare("
-            SELECT t.name, t.startDate, t.endDate, t.image, g.name AS game_name
-            FROM tournaments AS t 
-            INNER JOIN games AS g ON t.idGames = g.id 
-            WHERE t.startDate >= NOW() 
-            ORDER BY t.startDate ASC 
-            LIMIT 1
+        SELECT t.name, t.startDate, t.endDate, t.image, g.name AS game_name, t.id AS tournament_id
+        FROM tournaments AS t 
+        INNER JOIN games AS g ON t.idGames = g.id 
+        WHERE t.startDate >= NOW() 
+        AND t.endDate >= NOW() 
+        ORDER BY t.startDate ASC 
+        LIMIT 1
         ");
         
         $stmt->execute();
@@ -19,6 +20,7 @@
     
         if ($result) {
             // Récupération des informations du tournoi
+            $tournamentid=$result['tournament_id'];
             $tournamentName = $result['name'];
             $startDate = $result['startDate'];
             $endDate = $result['endDate'];
@@ -158,12 +160,11 @@
                 </p>
                 <p class="text-base leading-8">
                     Rejoignez-nous pour participer à ce tournoi palpitant ! 
-                    Contactez-nous pour plus d'informations.
                 </p>
                 </div>
-                <a href="#contact" class="inline-block tm-bg-green transition text-white text-xl pt-3 pb-4 px-8 rounded-md">
+                <a href="tournoi.php?id=<?php echo htmlspecialchars($tournamentid)?>" class="inline-block tm-bg-green transition text-white text-xl pt-3 pb-4 px-8 rounded-md">
                     <i class="far fa-comments mr-4"></i>
-                    Contact
+                    En savoir plus
                 </a>
             </div>           
         </div>        
@@ -172,26 +173,28 @@
         <div class="container mx-auto tm-container pt-24 pb-48 sm:py-48">
             <div class="flex flex-col lg:flex-row justify-around items-center lg:items-stretch">
                 <div class="flex-1 rounded-xl px-10 py-12 m-5 bg-white bg-opacity-80 tm-item-container">
-                    <h2 class="text-3xl mb-6 tm-text-green">Contact Us</h2>
-                    <p class="mb-6 text-lg leading-8">
-                        Praesent tellus magna, consectetur sit amet volutpat eu, pulvinar vitae sem.
-                        Sed ultrices. bg white 80% alpha. btn #066    
-                    </p>
+                <h2 class="text-3xl mb-6 tm-text-green">Contactez-nous</h2>
+                        <p class="mb-6 text-lg leading-8">
+                        Si vous avez besoin d'autres informations, n'hésitez pas à nous contacter. Notre équipe est à votre disposition pour répondre à vos questions et vous fournir l'assistance nécessaire. Vous pouvez nous joindre par téléphone, par e-mail ou en remplissant le formulaire de contact ci-dessous. Nous ferons de notre mieux pour vous répondre dans les plus brefs délais.
+                        </p>
                     <p class="mb-10 text-lg">
-                        <span class="block mb-2">Tel: <a href="tel:0100200340" class="hover:text-yellow-600 transition">010-020-0340</a></span>
-                        <span class="block">Email: <a href="mailto:info@company.com" class="hover:text-yellow-600 transition">info@company.com</a></span>                        
+                        <span class="block mb-2">Tel: <a href="tel:0101010101" class="hover:text-yellow-600 transition">01.01.01.01.01</a></span>
+                        <span class="block">Email: <a href="mailto:info@company.com" class="hover:text-yellow-600 transition">arrasgames@cyber.com</a></span>                        
                     </p>
                     <div class="text-center">
-                        <a href="https://www.google.com/maps" class="inline-block text-white text-2xl pl-10 pr-12 py-6 rounded-lg transition tm-bg-green">
-                            <i class="fas fa-map-marked-alt mr-8"></i>
-                            Open Maps
+                    <a href="https://www.google.com/maps/place/Pôle+Sup'+Baudimont/@50.2935859,2.7644597,17z/data=!4m14!1m7!3m6!1s0x47dd47706a082b91:0x753ea11911e0c30b!2sPôle+Sup'+Baudimont!8m2!3d50.2935859!4d2.76704!16s%2Fg%2F11vwgymbh9!3m5!1s0x47dd47706a082b91:0x753ea11911e0c30b!8m2!3d50.2935859!4d2.76704!16s%2Fg%2F11vwgymbh9?entry=ttu&g_ep=EgoyMDI0MDkyNS4wIKXMDSoASAFQAw%3D%3D" 
+                        class="inline-block text-white text-2xl pl-10 pr-12 py-6 rounded-lg transition tm-bg-green"
+                        target="_blank">
+                        <i class="fas fa-map-marked-alt mr-8"></i>
+                        Ouvrir maps
                         </a>
+
                     </div>                    
                 </div>
                 <div class="flex-1 rounded-xl p-12 pb-14 m-5 bg-black bg-opacity-50 tm-item-container">
                     <form action="" method="POST" class="text-lg">
-                        <input type="text" name="name" class="input w-full bg-black border-b bg-opacity-0 text-white px-0 py-4 mb-4 tm-border-gold" placeholder="Name" required="" />
-                        <input type="email" name="email" class="input w-full bg-black border-b bg-opacity-0 text-white px-0 py-4 mb-4 tm-border-gold" placeholder="Email" required="" />
+                        <input type="text" name="name" class="input w-full bg-black border-b bg-opacity-0 text-white px-0 py-4 mb-4 tm-border-gold" placeholder="Nom" required="" />
+                        <input type="email" name="email" class="input w-full bg-black border-b bg-opacity-0 text-white px-0 py-4 mb-4 tm-border-gold" placeholder="Mail" required="" />
                         <textarea rows="6" name="message" class="input w-full bg-black border-b bg-opacity-0 text-white px-0 py-4 mb-4 tm-border-gold" placeholder="Message..." required=""></textarea>
                         <div class="text-right">
                             <button type="submit" class="text-white hover:text-yellow-500 transition">Send it</button>

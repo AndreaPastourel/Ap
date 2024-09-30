@@ -12,12 +12,24 @@ $id = $_SESSION['id'];
 
 try {
     require_once("dbconnect.php");
+    
+    // Récupérer les informations de l'utilisateur
     $stmt = $pdo->prepare("SELECT * FROM users WHERE id=?");
     $stmt->execute([$id]);
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
     $username = $result['username'];
     $email = $result['email'];
+    
+    // Récupérer les participations aux tournois de l'utilisateur
+    $sqlParticipations = "SELECT t.name, t.startDate, t.endDate 
+                          FROM play p
+                          JOIN tournaments t ON p.idTournaments = t.id
+                          WHERE p.idUsers = ?";
+    $stmtParticipations = $pdo->prepare($sqlParticipations);
+    $stmtParticipations->execute([$id]);
+    $participations = $stmtParticipations->fetchAll(PDO::FETCH_ASSOC);
+
 } catch (PDOException $e) {
     echo "ERREUR : " . $e->getMessage();
 }
@@ -36,7 +48,7 @@ try {
             <h3>Informations personnelles</h3>
             <p>Nom d'utilisateur : <?php echo htmlspecialchars($username); ?></p>
             <p>Email : <?php echo htmlspecialchars($email); ?></p>
-            <a href="modifier_infos.php">Modifier mes informations</a>
+            <a href="actionForm/modifierInfos.php">Modifier mes informations</a>
 
             <!-- Section pour changer le mot de passe -->
             <form action="actionForm/changer_mdp.php" method="POST">
@@ -53,9 +65,22 @@ try {
                 <button type="submit">Mettre à jour le mot de passe</button>
             </form>
 
-            <!-- Historique des commandes -->
-            <h3>Historique des commandes</h3>
-            <p>Vous n'avez pas encore passé de commandes.</p>
+            <!-- Historique des Participations -->
+            <h3>Historique des Participations</h3>
+
+            <?php if (count($participations) > 0): ?>
+                <ul>
+                    <?php foreach ($participations as $participation): ?>
+                        <li>
+                            <strong>Tournoi :</strong> <?php echo htmlspecialchars($participation['name']); ?><br>
+                            <strong>Date de début :</strong> <?php echo htmlspecialchars($participation['startDate']); ?><br>
+                            <strong>Date de fin :</strong> <?php echo htmlspecialchars($participation['endDate']); ?><br>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php else: ?>
+                <p>Vous n'avez participé à aucun tournoi.</p>
+            <?php endif; ?>
 
             <!-- Bouton de déconnexion -->
             <h3>
