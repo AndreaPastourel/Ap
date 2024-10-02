@@ -21,34 +21,31 @@ if (!isset($_SESSION['username']) || ($_SESSION['role'] != "admin" && $_SESSION[
     <h2>Ajouter un jeu</h2>
     <p><a href="/arrasGames/crudGame.php">Retour en arrière</a></p>
 
-    <form action="/arrasGames/crud/games/action/add.php" method="post">
-        <table>
-            <tr>
-                <td>Nom du jeu</td>
-                <td><input type="text" name="name" required></td>
-            </tr>
-
-            <tr>
-                <td>Date de sortie</td>
-                <td><input type="date" name="releaseDate" required></td>
-            </tr>
-
-            <tr>
-                <td>Éditeur</td>
-                <td><input type="text" name="editor" required></td>
-            </tr>
-
-            <tr>
-                <td>Genre</td>
-                <td><input type="text" name="genre" required></td>
-            </tr>
-
-            <tr>
-                <td><input type="submit" name="submit" value="Ajouter"></td>
-            </tr>
-        </table>
-    </form>
-
+    <form method="POST" action="/arrasGames/crud/games/action/add.php">
+    <table>
+        <tr>
+            <td>Nom du jeu</td>
+            <td><input type="text" name="name" required></td>
+        </tr>
+        <tr>
+            <td>Date de sortie</td>
+            <td><input type="date" name="releaseDate" required></td>
+        </tr>
+        <tr>
+            <td>Éditeur</td>
+            <td><input type="text" name="editor" required></td>
+        </tr>
+        <tr>
+            <td>Genre</td>
+            <td><input type="text" name="genre" required></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Ajouter">
+            </td>
+        </tr>
+    </table>
+</form>
 </div>
 
 <!-- footer section -->

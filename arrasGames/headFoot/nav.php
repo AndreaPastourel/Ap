@@ -7,7 +7,7 @@ if (session_status() == PHP_SESSION_NONE) {
 $isConnected = isset($_SESSION['username']); // Remplace 'username' par la clé que tu utilises pour stocker l'utilisateur connecté
 ?>
 
-<nav id="tm-nav" class="fixed w-full">
+<nav id="tm-nav" class="fixed w-full" style=' backdrop-filter: blur(5px);'>
     <div class="tm-container mx-auto px-2 md:py-6 text-right">
         <!-- Bouton pour mobile -->
         <button class="md:hidden py-2 px-2" id="menu-toggle">

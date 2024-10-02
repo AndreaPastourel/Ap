@@ -11,7 +11,7 @@ if (!isset($_SESSION['id'])) {
 $id = $_SESSION['id'];
 
 try {
-    require_once("dbconnect.php");
+    require_once("dbConnect.php");
     
     // Récupérer les informations de l'utilisateur
     $stmt = $pdo->prepare("SELECT * FROM users WHERE id=?");

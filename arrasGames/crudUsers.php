@@ -1,4 +1,10 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
+// Le reste de ton code ici
+?>
 <?php 
     if (session_status() == PHP_SESSION_NONE) {
     session_start();}
@@ -9,7 +15,7 @@
     ?>
 <?php
 //Include the database connection file
-require_once('dbconnect.php');
+require_once('dbConnect.php');
 
 //Requete pour recuperer les utilisateurs 
 $stmt=$pdo->query("SELECT * FROM users ORDER BY id");
