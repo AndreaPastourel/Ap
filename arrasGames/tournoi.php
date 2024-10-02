@@ -18,9 +18,13 @@ require('headFoot/header.php');?>
         $id = intval($_GET['id']);
 
         // Requête SQL pour obtenir les détails du tournoi
-        $sql = "SELECT * FROM tournaments WHERE id = :id";
+        $sql = "SELECT tournaments.*, games.name AS gameName
+        FROM tournaments 
+        JOIN games ON tournaments.idGames = games.id
+        WHERE tournaments.id = :id";
+        
         $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
         $tournament = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -29,6 +33,7 @@ require('headFoot/header.php');?>
             echo "<h2>" . htmlspecialchars($tournament['name']) . "</h2>";
             echo "<p>Date de début : " . htmlspecialchars($tournament['startDate']) . "</p>";
             echo "<p>Date de fin : " . htmlspecialchars($tournament['endDate']) . "</p>";
+            echo "<p>Jeu : " . htmlspecialchars($tournament['gameName']) . "</p>";
             echo "<img src='uploads/" . htmlspecialchars($tournament['image']) . "' alt='" . htmlspecialchars($tournament['name']) . "' width='200px'>";
 
             // Requête SQL pour obtenir les participants du tournoi

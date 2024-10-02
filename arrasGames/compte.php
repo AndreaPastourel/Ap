@@ -50,7 +50,7 @@ try {
             <p>Email : <?php echo htmlspecialchars($email); ?></p>
             <a href="actionForm/modifierInfos.php">Modifier mes informations</a>
 
-            <!-- Section pour changer le mot de passe -->
+                    <!-- Section pour changer le mot de passe -->
             <form action="actionForm/changer_mdp.php" method="POST">
                 <label for="current_password">Mot de passe actuel :</label>
                 <input type="password" name="current_password" required>
@@ -58,12 +58,15 @@ try {
                 <label for="new_password">Nouveau mot de passe :</label>
                 <input type="password" name="new_password" required>
 
-                <!-- S'assurer que l'ID de l'utilisateur est passé correctement -->
+                <!-- Passer l'ID de l'utilisateur correctement -->
                 <input type="hidden" name="id" value="<?php echo $id; ?>">
+
+                <!-- Passer le nom d'utilisateur correctement -->
                 <input type="hidden" name="username" value="<?php echo htmlspecialchars($username); ?>">
 
                 <button type="submit">Mettre à jour le mot de passe</button>
             </form>
+                        </form>
 
             <!-- Historique des Participations -->
             <h3>Historique des Participations</h3>

@@ -57,7 +57,7 @@
                         Nous sommes un cybercafé qui vous propose de venir jouer sur du materiel à la pointe de la technologie. 
                         Pour les pros ou juste pour vous amusez n'hesitez plus.</p>
                     <p class="text-white leading-8 text-sm font-light">	
-                        Si vous avez des question : <a rel="nofollow" href="https://www.tooplate.com/contact" target="_parent">envoyez nous un message</a>. </p>
+                        Si vous avez des question : <a rel="nofollow" href="#contact" target="_parent">envoyez nous un message</a>. </p>
                 </div>
                 <div class="text-center">
                     <div class="inline-block">
@@ -191,16 +191,7 @@
 
                     </div>                    
                 </div>
-                <div class="flex-1 rounded-xl p-12 pb-14 m-5 bg-black bg-opacity-50 tm-item-container">
-                    <form action="" method="POST" class="text-lg">
-                        <input type="text" name="name" class="input w-full bg-black border-b bg-opacity-0 text-white px-0 py-4 mb-4 tm-border-gold" placeholder="Nom" required="" />
-                        <input type="email" name="email" class="input w-full bg-black border-b bg-opacity-0 text-white px-0 py-4 mb-4 tm-border-gold" placeholder="Mail" required="" />
-                        <textarea rows="6" name="message" class="input w-full bg-black border-b bg-opacity-0 text-white px-0 py-4 mb-4 tm-border-gold" placeholder="Message..." required=""></textarea>
-                        <div class="text-right">
-                            <button type="submit" class="text-white hover:text-yellow-500 transition">Send it</button>
-                        </div>                        
-                      </form>
-                </div>
+              
             </div>
 
 <?php require_once('headFoot/footer.php')?>

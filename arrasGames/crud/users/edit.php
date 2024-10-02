@@ -5,7 +5,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 if (!isset($_SESSION['username']) || $_SESSION['role'] != "admin") {
-    header("Location: ../../../unauthorized.php");
+    header("Location: /arrasGames/unauthorized.php");
     exit();
 }
 ?>
@@ -52,7 +52,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/arrasGames/headFoot/nav.php');
     ?>
 
 <h2>Modifier les informations</h2>
-<p><a href="crud.php">Retour en arrière</a></p>
+<p><a href="/arrasGames/crudUsers.php">Retour en arrière</a></p>
 
 <!-- Début Formulaire -->
 <form action="action/edit.php" method="post" name="add" enctype="multipart/form-data">

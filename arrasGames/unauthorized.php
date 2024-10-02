@@ -10,11 +10,8 @@
 
 </head>
 
-<body class="sub_page">
-<div class="form">
-  <div class="main_body_content">
+<body background="img/arrasGames-bg-1.jpg">
 
-    <div class="hero_area">
       <!-- header section strats -->
       <?php require_once('headFoot/nac.php')?>
 

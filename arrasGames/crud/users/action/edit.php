@@ -5,7 +5,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 if (!isset($_SESSION['username']) || $_SESSION['role'] != "admin") {
-    header("Location: ../../../unauthorized.php");
+    header("Location: /arrasGames/unauthorized.php");
     exit();
 }
 ?>

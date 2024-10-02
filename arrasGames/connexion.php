@@ -4,12 +4,12 @@
 require_once("headFoot/header.php")
 ?>
 
-<body style="background-image: url('img/arrasGames-bg-1.jpg');">
+<body style="background-image: url('/arrasGames/img/arrasGames-bg-1.jpg');">
     
     <?php require_once("headFoot/nav.php")?>
     <div class="formulaire">
     <h2>Se connecter</h2>
-    <form action="actionForm/connexion.php" method='post' name='connexion' enctype="multipart/form-data">
+    <form action="/arrasGames/actionForm/connexion.php" method='post' name='connexion' enctype="multipart/form-data">
         <table>
             <tr>
                 <td>Username</td>
