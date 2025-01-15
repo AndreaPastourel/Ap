@@ -105,7 +105,6 @@ textarea::-ms-input-placeholder { /* Microsoft Edge */
 #tm-nav {
     z-index: 1000;
     transition: all 0.3s ease;
-    backdrop-filter: blur(20px);
 }
 
 #tm-nav.scroll {

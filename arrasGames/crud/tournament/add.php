@@ -87,9 +87,6 @@ if (!isset($_SESSION['username']) || ($_SESSION['role'] != "admin" && $_SESSION[
 
 </div>
 
-<!-- footer section -->
-<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/arrasGames/headFoot/footer.php'); ?>
-<!-- footer section -->
 
 </body>
 </html>

@@ -25,7 +25,6 @@ $stmt = $pdo->query("SELECT * FROM games ORDER BY id");
     
     <!-- header section starts -->
     <?php require_once('headFoot/nav.php'); ?>
-
     <!-- end header section -->
 
     <div class="crud">

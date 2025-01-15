@@ -7,7 +7,7 @@
          
 
             <?php
-            require_once('../dbconnect.php');
+            require_once('../dbConnect.php');
             session_start();
 
             if ($_SERVER["REQUEST_METHOD"] == "POST") {

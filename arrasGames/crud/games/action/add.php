@@ -32,14 +32,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->execute([$name, $releaseDate, $editor, $genre]);
 
             // Message de succès
-            require_once($_SERVER['DOCUMENT_ROOT'] . '/arrasGames/crud/games/add.php');
             $successMsg = "Le jeu '$name' a été ajouté avec succès.";
         } catch (PDOException $e) {
-            require_once($_SERVER['DOCUMENT_ROOT'] . '/arrasGames/crud/games/add.php');
             $errorMsg = "ERREUR: " . $e->getMessage();
         }
     }
 }
-
+require_once($_SERVER['DOCUMENT_ROOT'] . '/arrasGames/crud/games/add.php');
 ?>
 

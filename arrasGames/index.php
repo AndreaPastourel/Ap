@@ -148,7 +148,7 @@
             </div>
         </div>        
     </div>
-    <div id="about" class="parallax-window" data-parallax="scroll" data-image-src="uploads/<?php echo htmlspecialchars($image);?>">
+    <div id="about" class="parallax-window" data-parallax="scroll" data-image-src="/arrasGames/uploads/<?php echo htmlspecialchars($image);?>">
         <div class="container mx-auto tm-container py-24 sm:py-48">
             <div class="tm-item-container sm:ml-auto sm:mr-12 mx-auto sm:px-0 px-4">
                 <div class="bg-white bg-opacity-80 p-12 pb-14 rounded-xl mb-5">

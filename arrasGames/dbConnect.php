@@ -1,9 +1,8 @@
-<?php
-$db = "arrasGames";
-$dbhost = "localhost";
+<?php $db = "arrasGames";
+$dbhost = "127.0.0.1";
 $dbport = 3306;
 $dbuser = "root";
-$dbpassword = "Root123";
+$dbpassword = "root";
 
 try {
     $pdo = new PDO('mysql:host=' . $dbhost . ';port=' . $dbport . ';dbname=' . $db, $dbuser, $dbpassword);
@@ -13,3 +12,5 @@ try {
     die("Erreur de connexion : " . $e->getMessage());
 }
 ?>
+
+
